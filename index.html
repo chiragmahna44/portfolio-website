@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name | Community building, networking and engagement</title>
+<meta name="description" content="Community building, networking and engagement that turn conversations into booked calls.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f5ef;
+  --surface: #ffffff;
+  --ink: #1f2415;
+  --muted: #5e6552;
+  --line: #d9dccb;
+  --accent: #6b7a2a;
+  --accent-ink: #ffffff;
+  --tint: #e6ebc9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161a0e;
+    --surface: #1e2315;
+    --ink: #eef0e2;
+    --muted: #a3aa90;
+    --line: #343b24;
+    --accent: #a9bb4f;
+    --accent-ink: #161a0e;
+    --tint: #2a3217;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+header { padding: 22px 0; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.01em; }
+nav { display: flex; gap: 22px; align-items: center; font-size: 0.95rem; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 700;
+  text-decoration: none; font-size: 0.97rem; border: 2px solid var(--accent);
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); filter: none; }
+nav .btn { color: var(--accent-ink); padding: 9px 18px; }
+nav .btn:hover { color: var(--accent-ink); }
+
+/* Hero */
+.hero { padding: 72px 0 56px; }
+.hero h1 {
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  line-height: 1.05; letter-spacing: -0.03em; font-weight: 800;
+  margin: 0 0 22px; max-width: 16ch;
+}
+.hero p { font-size: 1.2rem; color: var(--muted); max-width: 52ch; margin: 0 0 32px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 28px 0; }
+.stats.one { grid-template-columns: 1fr; }
+.stat + .stat { padding-left: 28px; border-left: 1px solid var(--line); }
+.stat b { display: block; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.1; }
+.stat span { color: var(--muted); font-size: 0.95rem; }
+
+/* Sections */
+section { padding: 72px 0 0; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 28px; }
+.about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.about h2 { margin: 0; }
+.about p { margin: 0 0 16px; color: var(--muted); max-width: 62ch; }
+.about p:first-child { color: var(--ink); }
+
+/* Work list */
+.work { border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: 1fr auto; gap: 8px 32px; align-items: baseline;
+  padding: 26px 0; border-bottom: 1px solid var(--line); text-decoration: none;
+}
+.row:hover h3 { color: var(--accent); }
+.row h3 { margin: 0 0 4px; font-size: 1.25rem; letter-spacing: -0.01em; }
+.row p { margin: 0; color: var(--muted); max-width: 56ch; }
+.row .result { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; text-align: right; white-space: nowrap; }
+.row .result small { display: block; font-weight: 500; font-size: 0.85rem; color: var(--muted); letter-spacing: 0; }
+
+/* What I do */
+.do { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.do div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+.do div:nth-child(2) { background: var(--tint); border-color: transparent; }
+.do h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.do p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+
+/* Results */
+.results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 48px; }
+.res { border-top: 3px solid var(--accent); padding-top: 18px; }
+.res h3 { margin: 0 0 12px; font-size: 1.2rem; letter-spacing: -0.01em; }
+.res ul { margin: 0; padding: 0; list-style: none; }
+.res li { padding: 7px 0 7px 18px; position: relative; color: var(--muted); }
+.res li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: 8px; height: 2px; background: var(--accent); }
+.res li b { color: var(--ink); }
+
+/* Screenshots */
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.shot { text-decoration: none; display: block; }
+.shot img { width: 100%; display: block; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+.shot span { display: block; margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
+.shot:hover span { color: var(--ink); }
+.shot.empty img { display: none; }
+.shot.empty::before { content: "Add your screenshot here"; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 0.95rem; }
+
+/* Quote */
+blockquote { margin: 0; padding: 0 0 0 24px; border-left: 4px solid var(--accent); max-width: 60ch; }
+blockquote p { font-size: clamp(1.3rem, 2.6vw, 1.7rem); line-height: 1.4; margin: 0 0 14px; letter-spacing: -0.01em; font-weight: 500; }
+blockquote cite { font-style: normal; color: var(--muted); font-size: 0.95rem; }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--bg); border-radius: 22px; padding: 56px 40px; margin-top: 72px; }
+.contact h2 { margin-bottom: 12px; }
+.contact p { margin: 0 0 28px; max-width: 48ch; opacity: 0.8; }
+.contact .btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+.contact .btn.ghost { background: transparent; color: var(--bg); border-color: rgba(128,128,128,0.6); }
+
+footer { padding: 40px 0 48px; color: var(--muted); font-size: 0.9rem; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 760px) {
+  nav a:not(.btn) { display: none; }
+  .hero { padding-top: 40px; }
+  .stats { grid-template-columns: 1fr; }
+  .stat + .stat { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .about, .do, .results, .shots { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 1fr; }
+  .row .result { text-align: left; }
+  .contact { padding: 40px 24px; }
+}
+.about ul { margin: 0 0 16px; padding-left: 20px; color: var(--muted); max-width: 62ch; }
+.about li { margin-bottom: 8px; }
+.cs { border-top: 1px solid var(--line); }
+.cs-row { display: grid; grid-template-columns: 1fr 2.4fr; gap: 12px 40px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.cs-row h3 { margin: 0; font-size: 1.1rem; }
+.cs-row p { margin: 0 0 14px; color: var(--muted); max-width: 62ch; }
+.cs-row p b { color: var(--ink); }
+.cs-row ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 62ch; }
+.cs-row li { margin-bottom: 8px; }
+.cs-row .shot { max-width: 520px; }
+@media (max-width: 760px) { .cs-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Your Name</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <!-- HERO: change the headline and line below to what you do -->
+    <div class="hero">
+      <h1>I build communities and conversations that bring in clients.</h1>
+      <p>I manage the LinkedIn presence of C-suite executives and founders building 8-9 figure companies, through community building, networking and engagement.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Work with me</a>
+        <a class="btn ghost" href="#work">See my results</a>
+      </div>
+    </div>
+
+    <div class="stats one">
+      <div class="stat"><b>Worked with 15+ clients</b></div>
+    </div>
+
+    <section id="about">
+      <div class="about">
+        <h2>About me</h2>
+        <div>
+          <p>I am a community manager who runs the LinkedIn presence of C-suite executives and founders building 8-9 figure companies around the world.</p>
+          <p>My work centres on community building, networking and engagement. I study each client's industry, identify the conversations worth joining, and contribute thoughtful comments that add real value to the discussion.</p>
+          <p>Over time, this builds relationships with the right people and extends my clients' networks well beyond their existing circles. I have worked with clients across customer success, sales and coaching.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>Results</h2>
+      <div class="shots">
+        <a class="shot" href="images/comments.png" target="_blank" rel="noopener">
+          <img src="images/comments.png" alt="Comments that started conversations screenshot" loading="lazy" onerror="this.parentNode.classList.add('empty')">
+          <span>Comments that started conversations</span>
+        </a>
+        <a class="shot" href="images/networking.png" target="_blank" rel="noopener">
+          <img src="images/networking.png" alt="Networking that turned into calls screenshot" loading="lazy" onerror="this.parentNode.classList.add('empty')">
+          <span>Networking that turned into calls</span>
+        </a>
+        <a class="shot" href="images/engagement.png" target="_blank" rel="noopener">
+          <img src="images/engagement.png" alt="Engagement on client accounts screenshot" loading="lazy" onerror="this.parentNode.classList.add('empty')">
+          <span>Engagement on client accounts</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="case-study">
+      <h2>Case study: growing collaborations for a customer success executive</h2>
+      <div class="cs">
+        <div class="cs-row">
+          <h3>The client</h3>
+          <p>A customer success executive who wanted to connect with the right people in his market, mainly B2B SaaS companies. The aim was to land as many collaborations as possible and strengthen his name in customer success, with good engagement on LinkedIn along the way.</p>
+        </div>
+        <div class="cs-row">
+          <h3>The challenge</h3>
+          <p>He was enrolled in two or three professional communities, but time was the main issue. He did not have the time to network or start conversations with the people in them, so I did it on his behalf.</p>
+        </div>
+        <div class="cs-row">
+          <h3>What I did</h3>
+          <ul>
+            <li>Started networking inside his existing community memberships, joining discussions and building relationships with the people active there.</li>
+            <li>Took those same conversations to LinkedIn and reached out to the people I had connected with.</li>
+            <li>Engaged with the right people in his market through thoughtful comments, to keep his profile visible to the right audience.</li>
+          </ul>
+        </div>
+        <div class="cs-row">
+          <h3>The result</h3>
+          <div>
+            <p><b>3 to 4 calls booked within the first 8 days</b>, along with stronger impressions and engagement on his LinkedIn activity.</p>
+            <a class="shot" href="images/case-study.png" target="_blank" rel="noopener">
+              <img src="images/case-study.png" alt="Case study result screenshot" loading="lazy" onerror="this.parentNode.classList.add('empty')">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>What I can do for you</h2>
+      <div class="do">
+        <div>
+          <h3>Community building</h3>
+          <p>Identifying the conversations and communities that matter in your industry, and building a consistent, credible presence within them.</p>
+        </div>
+        <div>
+          <h3>Networking</h3>
+          <p>Developing relationships with the right people, so your network grows beyond the circles you already have.</p>
+        </div>
+        <div>
+          <h3>Engagement</h3>
+          <p>Researched, thoughtful comments that add value to the discussion and keep your profile visible to the right audience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <blockquote>
+        <p>Paste a real testimonial from a client or colleague here. One or two sentences works best.</p>
+        <cite>Client name, role at company</cite>
+      </blockquote>
+    </section>
+
+    <section id="contact" style="padding-top:0">
+      <div class="contact">
+        <h2>Let's talk.</h2>
+        <p>Tell me what you're working on and I'll get back to you within a couple of days.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:you@example.com">you@example.com</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/your-profile" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Your Name</span>
+    <span>Based in [your city]</span>
+  </div>
+</footer>
+
+</body>
+</html>
